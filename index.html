@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Admin</title>
+  <link rel="stylesheet" href="styles1.css">
+
+  <!-- Bootstrap -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <center>
+    <table border="4">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <td><input type="text" id="name" name="name"></td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>Party Name</th>
+          <td><input type="text" id="pname" name="pname"></td>
+        </tr>
+        <tr>
+          <th>Qualification</th>
+          <td><input type="text" id="quali" name="quali"></td>
+        </tr>
+        <tr>
+          <th>Age</th>
+          <td><input type="text" id="age" name="age"></td>
+        </tr>
+        <tr id="btna">
+          <td colspan="2"><input type="button" id="button" name="btn" value="Add" onclick="AddRow()"></td>
+        </tr>
+      </tbody>
+
+    </table>
+
+  </center>
+
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/web3.min.js"></script>
+  <script src="js/truffle-contract.js"></script>
+  <script src="js/app.js"></script>
+
+
+
+
+  <script>
+    var list1 = JSON.parse(localStorage.getItem("userData")) || [];
+
+    var n = 1;
+    var x = 0;
+
+    function AddRow() {
+      const NewData = {
+        name: document.getElementById("name").value,
+        pname: document.getElementById("pname").value,
+        quali: document.getElementById("quali").value,
+        age: document.getElementById("age").value
+      }
+
+      list1.push(NewData);
+      console.log(list1);
+      localStorage.setItem("userData", JSON.stringify(list1));
+      console.log(JSON.parse(localStorage.getItem("userData")));
+
+      n++;
+      x++;
+      // window.location = "http://127.0.0.1:5500/src/index1.html"
+      // window.location = "http://127.0.0.1:5500/src1/index1.html"
+      // window.location = "http://127.0.0.1:5500/index1.html"
+      window.location="http://127.0.0.1:5500/index1.html"
+    }
+  </script>
+
+</body>
+
+</html>

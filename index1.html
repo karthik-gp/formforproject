@@ -1,0 +1,59 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="styles1.css">
+
+</head>
+
+<body>
+  <center>
+    <table border="4" id="show">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Party Name</th>
+          <th>Email</th>
+          <th>Age</th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+    <button onclick="Delete()">Delete</button>
+  </center>
+
+
+
+  <script>
+
+    var userData = JSON.parse(localStorage.getItem('userData'));
+    console.log(userData);
+
+    for (var i = 0; i < userData.length; i++) {
+      var n = 1;
+
+      // for creating card change this only
+      var AddRown = document.getElementById("show");
+      var NewRow = AddRown.insertRow(n);
+      var cel1 = NewRow.insertCell(0);
+      var cel2 = NewRow.insertCell(1);
+      var cel3 = NewRow.insertCell(2);
+      var cel4 = NewRow.insertCell(3);
+
+      cel1.innerHTML = userData[i]["name"];
+      cel2.innerHTML = userData[i]["pname"];
+      cel3.innerHTML = userData[i]["quali"];
+      cel4.innerHTML = userData[i]["age"];
+    }
+
+    function Delete() {
+      localStorage.removeItem("userData");
+    }
+  </script>
+</body>
+
+</html>
